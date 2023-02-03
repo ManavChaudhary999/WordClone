@@ -1,29 +1,22 @@
 import React from "react";
+import {range} from "../../utils";
+import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
 
-import GuessInput from "../GuessInput";
+import Guess from "../Guess";
 
-function GuessResults() {
-  const [results, setResults] = React.useState([]);
-
-  function AddGuess(guessedWord)
-  {
-    const id = Math.random();
-    const guess = {id, guessedWord};
-    const newResults = [...results, guess];
-    setResults(newResults);
-  }
-
+function GuessResults({guesses}) {
   return (
-    <>
-      <div className="guess-results">
-      {
-        results.map(({id, guessedWord}) => (
-          <p key={id} className="guess">{guessedWord}</p>
-        ))
-      }
-      </div>
-      <GuessInput AddGuess={AddGuess} />
-    </>
+    <div className="guess-results">
+    {
+      // guesses.map((guessedWord, idx) => (
+      //   <p key={idx} className="guess">{guessedWord}</p>
+      // ))
+      range(NUM_OF_GUESSES_ALLOWED).map(row => {
+        // const word = guesses[row];
+        return <Guess key={row} value={guesses[row]} />
+      })
+    }
+    </div>
   );
 }
 
