@@ -4,7 +4,7 @@ import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
 
 import Guess from "../Guess";
 
-function GuessResults({guesses, answer}) {
+function GuessResults({validatedGuesses, answer}) {
   return (
     <div className="guess-results">
     {
@@ -12,7 +12,7 @@ function GuessResults({guesses, answer}) {
       //   <p key={idx} className="guess">{guessedWord}</p>
       // ))
       range(NUM_OF_GUESSES_ALLOWED).map(row =>
-        <Guess key={row} value={guesses[row]} answer={answer} />
+        <Guess key={row} value={validatedGuesses[row]} answer={answer} />
       )
     }
     </div>
