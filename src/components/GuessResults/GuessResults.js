@@ -4,7 +4,7 @@ import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
 
 import Guess from "../Guess";
 
-function GuessResults({guesses}) {
+function GuessResults({guesses, answer}) {
   return (
     <div className="guess-results">
     {
@@ -13,7 +13,7 @@ function GuessResults({guesses}) {
       // ))
       range(NUM_OF_GUESSES_ALLOWED).map(row => {
         // const word = guesses[row];
-        return <Guess key={row} value={guesses[row]} />
+        return <Guess key={row} value={guesses[row]} answer={answer} />
       })
     }
     </div>
