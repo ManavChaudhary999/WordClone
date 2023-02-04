@@ -11,10 +11,9 @@ function GuessResults({guesses, answer}) {
       // guesses.map((guessedWord, idx) => (
       //   <p key={idx} className="guess">{guessedWord}</p>
       // ))
-      range(NUM_OF_GUESSES_ALLOWED).map(row => {
-        // const word = guesses[row];
-        return <Guess key={row} value={guesses[row]} answer={answer} />
-      })
+      range(NUM_OF_GUESSES_ALLOWED).map(row =>
+        <Guess key={row} value={guesses[row]} answer={answer} />
+      )
     }
     </div>
   );
